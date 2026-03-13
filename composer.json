@@ -1,0 +1,20 @@
+{
+    "name": "sahil/php-query-optimizer",
+    "description": "PHP query performance analyzer",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sahil\\PhpQueryOptimizer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sahil",
+            "email": "sahil512sk@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
