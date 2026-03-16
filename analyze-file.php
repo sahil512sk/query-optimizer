@@ -1,0 +1,41 @@
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Sahil\PhpQueryOptimizer\QueryAnalyzer;
+use Sahil\PhpQueryOptimizer\CodeAnalyzer;
+
+$file = $argv[1] ?? null;
+
+if (!$file) {
+    echo "Usage: php analyze-file.php <file.php>\n";
+    exit;
+}
+
+if (!file_exists($file)) {
+    echo "File not found: $file\n";
+    exit;
+}
+
+$queryAnalyzer = new QueryAnalyzer();
+$queryAnalyzer->loadDefaultRules();
+
+$codeAnalyzer = new CodeAnalyzer($queryAnalyzer);
+
+$result = $codeAnalyzer->analyzeFile($file);
+
+foreach ($result as $item) {
+
+    echo "\nQuery:\n";
+    echo $item['query'] . "\n";
+
+    echo "Score: " . $item['analysis']['score'] . "\n";
+
+    echo "Issues:\n";
+
+    foreach ($item['analysis']['issues'] as $issue) {
+        echo "- $issue\n";
+    }
+
+    echo "----------------------\n";
+}

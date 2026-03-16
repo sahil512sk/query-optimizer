@@ -7,6 +7,7 @@ use Sahil\PhpQueryOptimizer\Rules\LikeWildcardRule;
 use Sahil\PhpQueryOptimizer\Rules\MissingWhereRule;
 use Sahil\PhpQueryOptimizer\Rules\OrderByWithoutLimitRule;
 use Sahil\PhpQueryOptimizer\Rules\SelectStarRule;
+use PHPSQLParser\PHPSQLParser;
 
 class QueryAnalyzer
 {
@@ -22,16 +23,22 @@ class QueryAnalyzer
         $issues = [];
         $score = 100;
 
+        $parser = new PHPSQLParser();
+        $parsedQuery = $parser->parse($query);
+
         $parsed = [
             'type' => strtoupper(strtok(trim($query), " ")),
-            'has_where' => stripos($query, 'WHERE') !== false,
-            'has_order_by' => stripos($query, 'ORDER BY') !== false,
-            'has_limit' => stripos($query, 'LIMIT') !== false,
-            'has_join' => stripos($query, 'JOIN') !== false
+            'has_where' => isset($parsedQuery['WHERE']),
+            'has_order_by' => isset($parsedQuery['ORDER']),
+            'has_limit' => isset($parsedQuery['LIMIT']),
+            'has_join' => isset($parsedQuery['JOIN']),
+            'ast' => $parsedQuery
         ];
 
         foreach ($this->rules as $rule) {
+
             $result = $rule->check($query, $parsed);
+
             if ($result) {
                 $issues[] = $result;
                 $score -= 10;

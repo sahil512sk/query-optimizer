@@ -16,5 +16,7 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "greenlion/php-sql-parser": "^4.7"
+    }
 }

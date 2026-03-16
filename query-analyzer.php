@@ -3,6 +3,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use Sahil\PhpQueryOptimizer\QueryAnalyzer;
+use Sahil\PhpQueryOptimizer\CodeAnalyzer;
 
 $query = $argv[1] ?? '';
 
@@ -11,10 +12,12 @@ if (!$query) {
     exit;
 }
 
-$analyzer = new QueryAnalyzer();
-$analyzer->loadDefaultRules();
+$queryAnalyzer  = new QueryAnalyzer();
+$queryAnalyzer ->loadDefaultRules();
 
-$result = $analyzer->analyze($query);
+$codeAnalyzer = new CodeAnalyzer($queryAnalyzer);
+
+$result = $codeAnalyzer->analyzeFile("example.php");
 
 echo "Score: " . $result['score'] . PHP_EOL;
 echo "Issues:" . PHP_EOL;
