@@ -15,7 +15,8 @@
             "email": "sahil512sk@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "greenlion/php-sql-parser": "^4.7"
     }
