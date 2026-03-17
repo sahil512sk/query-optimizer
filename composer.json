@@ -19,5 +19,8 @@
     "prefer-stable": true,
     "require": {
         "greenlion/php-sql-parser": "^4.7"
+    },
+    "scripts": {
+    "query-analyze": "php vendor/professionalchacha/php-query-optimizer/analyze-file.php"
     }
 }
