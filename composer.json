@@ -1,0 +1,22 @@
+{
+    "name": "professionalchacha/php-query-optimizer",
+    "description": "PHP query performance analyzer",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ProfessionalChacha\\PhpQueryOptimizer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sahil",
+            "email": "sahil512sk@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "greenlion/php-sql-parser": "^4.7"
+    }
+}
