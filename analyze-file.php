@@ -7,7 +7,6 @@ use ProfessionalChacha\PhpQueryOptimizer\QueryAnalyzer;
 use ProfessionalChacha\PhpQueryOptimizer\CodeAnalyzer;
 
 $file = $argv[1] ?? null;
-
 if (!$file) {
     echo "Usage: php analyze-file.php <file.php>\n";
     exit;
