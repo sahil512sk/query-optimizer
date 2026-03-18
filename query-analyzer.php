@@ -2,6 +2,7 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
+// php vendor-bin-query-analyze path\to\file.php
 use ProfessionalChacha\PhpQueryOptimizer\QueryAnalyzer;
 use ProfessionalChacha\PhpQueryOptimizer\CodeAnalyzer;
 
