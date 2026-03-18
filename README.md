@@ -25,15 +25,73 @@ composer install
 
 ## Usage
 
-### Command Line
+### After Installation (via Composer)
 
+**Windows Users:**
 ```bash
-php query-analyzer.php "SELECT * FROM users ORDER BY created_at"
+# Method 1: Direct PHP execution (Recommended)
+php vendor\bin\query-analyze path\to\your\file.php
+php vendor\bin\query-analyze "SELECT * FROM users ORDER BY created_at"
+
+# Method 2: Use the provided batch file
+vendor-bin-query-analyze.bat path\to\your\file.php
+vendor-bin-query-analyze.bat "SELECT * FROM users"
 ```
 
-### Analyze PHP Files
+**Linux/Mac Users:**
+```bash
+# Method 1: Using vendor/bin (Recommended)
+vendor/bin/query-analyze path/to/your/file.php
+vendor/bin/query-analyze "SELECT * FROM users ORDER BY created_at"
+```
+
+**Method 2: Using Composer Script**
+```bash
+# Add this to your composer.json scripts section:
+# "query-analyze": "php vendor/bin/query-analyze"
+
+# Then run:
+composer query-analyze path/to/your/file.php
+composer query-analyze "SELECT * FROM users"
+```
+
+**Method 3: Create Local Alias**
+```bash
+# Create a local batch file (Windows)
+echo @echo off > query-analyze.bat
+echo php vendor\bin\query-analyze %%* >> query-analyze.bat
+
+# Or create a local shell script (Linux/Mac)
+echo '#!/bin/bash' > query-analyze
+echo 'php vendor/bin/query-analyze "$@"' >> query-analyze
+chmod +x query-analyze
+
+# Then use:
+./query-analyze path/to/your/file.php
+```
+
+**Method 4: Global Setup (Advanced)**
+```bash
+# Run setup script (requires admin rights)
+php setup-global.bat  # Windows
+bash setup-global.sh   # Linux/Mac
+```
+
+**Alternative Commands**
+```bash
+# Windows
+php vendor\bin\analyze-file path\to\your\file.php
+php vendor\bin\query-analyzer "SELECT * FROM users"
+
+# Linux/Mac
+vendor/bin/analyze-file path/to/your/file.php
+vendor/bin/query-analyzer "SELECT * FROM users ORDER BY created_at"
+```
+
+### Command Line (from source)
 
 ```bash
+php query-analyze.php "SELECT * FROM users ORDER BY created_at"
 php analyze-file.php path/to/your/file.php
 ```
 

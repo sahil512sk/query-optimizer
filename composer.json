@@ -15,12 +15,19 @@
             "email": "sahil512sk@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
+    "bin": [
+        "bin/analyze-file",
+        "bin/query-analyzer",
+        "bin/query-analyze"
+    ],
     "require": {
         "greenlion/php-sql-parser": "^4.7"
     },
     "scripts": {
-    "query-analyze": "php vendor/professionalchacha/php-query-optimizer/analyze-file.php"
+        "query-analyze": "vendor/bin/query-analyze",
+        "analyze-file": "vendor/bin/analyze-file",
+        "query-analyzer": "vendor/bin/query-analyzer"
     }
 }
