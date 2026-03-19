@@ -1,8 +1,8 @@
 <?php
 
-require __DIR__ . '/vendor/professionalchacha/php-query-optimizer/analyze-file.php';
+require __DIR__ . '/../../../autoload.php';
 
-// composer require professionalchacha/php-query-optimizer
+// composer require professionalchacha/php-query-optimizer:*@dev
 
 use ProfessionalChacha\PhpQueryOptimizer\QueryAnalyzer;
 use ProfessionalChacha\PhpQueryOptimizer\CodeAnalyzer;
