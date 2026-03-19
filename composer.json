@@ -28,7 +28,19 @@
     "scripts": {
         "query-analyze": "vendor/bin/query-analyze.php",
         "analyze-file": "vendor/bin/analyze-file.php",
-        "query-analyzer": "vendor/bin/query-analyzer.php"
+        "query-analyzer": "vendor/bin/query-analyzer.php",
+        "post-install-cmd": [
+            "@echo",
+            "@echo ==================== PHP Query Optimizer Setup Complete ====================",
+            "@echo",
+            "@echo To use this package in your project, follow these steps:",
+            "@echo",
+            "@echo Step 1: cd vendor/professionalchacha/php-query-optimizer; composer install",
+            "@echo Step 2: cd .. to project root directory",
+            "@echo Step 3: qa.bat path/of/file.php",
+            "@echo",
+            "@echo ========================================================================"
+        ]
     },
     "extra": {
         "laravel": {
