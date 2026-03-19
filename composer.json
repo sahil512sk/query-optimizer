@@ -37,7 +37,7 @@
             "@echo",
             "@echo Step 1: cd vendor/professionalchacha/php-query-optimizer; composer install",
             "@echo Step 2: cd .. to project root directory",
-            "@echo Step 3: qa.bat path/of/file.php",
+            "@echo Step 3: 'php vendor\professionalchacha\php-query-optimizer\analyze-file.php path/of/file.php'",
             "@echo",
             "@echo ========================================================================"
         ]
