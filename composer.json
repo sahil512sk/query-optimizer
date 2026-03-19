@@ -18,16 +18,16 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "bin": [
-        "bin/analyze-file",
-        "bin/query-analyzer",
-        "bin/query-analyze"
+        "src/query-analyze.php",
+        "src/analyze-file.php",
+        "src/query-analyzer.php"
     ],
     "require": {
         "greenlion/php-sql-parser": "^4.7"
     },
     "scripts": {
-        "query-analyze": "vendor/bin/query-analyze",
-        "analyze-file": "vendor/bin/analyze-file",
-        "query-analyzer": "vendor/bin/query-analyzer"
+        "query-analyze": "vendor/bin/query-analyze.php",
+        "analyze-file": "vendor/bin/analyze-file.php",
+        "query-analyzer": "vendor/bin/query-analyzer.php"
     }
 }
