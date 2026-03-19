@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../../../autoload.php';
 
 // php vendor-bin-query-analyze path\to\file.php
 use ProfessionalChacha\PhpQueryOptimizer\QueryAnalyzer;

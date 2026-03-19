@@ -1,26 +1,6 @@
 <?php
 
-$autoloadCandidates = [
-    __DIR__ . '/../../autoload.php',              // project root if script in vendor/professionalchacha/php-query-optimizer
-    dirname(__DIR__, 2) . '/autoload.php',        // previous behavior
-    dirname(__DIR__, 3) . '/autoload.php',        // if package installed deeper
-    getcwd() . '/vendor/autoload.php',            // executed from project root
-    getcwd() . '/autoload.php',                   // executed from project root directly
-];
-
-$autoloadFound = false;
-foreach ($autoloadCandidates as $candidate) {
-    if (file_exists($candidate)) {
-        require $candidate;
-        $autoloadFound = true;
-        break;
-    }
-}
-
-if (!$autoloadFound) {
-    fwrite(STDERR, "Could not find autoload.php. Searched:\n" . implode("\n", $autoloadCandidates) . "\n");
-    exit(1);
-}
+require __DIR__ . '/vendor/professionalchacha/php-query-optimizer/analyze-file.php';
 
 // composer require professionalchacha/php-query-optimizer
 
