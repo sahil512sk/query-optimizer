@@ -33,7 +33,11 @@ composer install
 php vendor\bin\query-analyze.php path\to\your\file.php
 php vendor\bin\query-analyze.php "SELECT * FROM users ORDER BY created_at"
 
-# Method 2: Use provided batch file
+# Method 2: Use package directly
+php vendor\professionalchacha\php-query-optimizer\analyze-file.php path\to\file.php
+php vendor\professionalchacha\php-query-optimizer\query-analyzer.php "SELECT * FROM users"
+
+# Method 3: Use provided batch file
 vendor-bin-query-analyze.bat path\to\your\file.php
 vendor-bin-query-analyze.bat "SELECT * FROM users"
 ```
@@ -43,6 +47,10 @@ vendor-bin-query-analyze.bat "SELECT * FROM users"
 # Method 1: Using vendor/bin (Recommended)
 php vendor/bin/query-analyze.php path/to/your/file.php
 php vendor/bin/query-analyze.php "SELECT * FROM users ORDER BY created_at"
+
+# Method 2: Use package directly
+php vendor/professionalchacha/php-query-optimizer/analyze-file.php path/to/file.php
+php vendor/professionalchacha/php-query-optimizer/query-analyzer.php "SELECT * FROM users"
 ```
 
 **Method 2: Using Composer Script**
@@ -109,6 +117,31 @@ $analyzer->loadDefaultRules();
 $result = $analyzer->analyze("SELECT * FROM users");
 print_r($result);
 ```
+
+## Laravel Integration
+
+### Quick Setup
+```bash
+composer require professionalchacha/php-query-optimizer
+# Auto-discovers the Laravel service provider
+php artisan analyze:queries app/Http/Controllers/UserController.php
+```
+
+### Usage
+```bash
+php artisan analyze:queries app/Http/Controllers/UserController.php
+php artisan analyze:queries database/seeders/DatabaseSeeder.php
+php artisan analyze:queries app/Models/User.php
+```
+
+**Features:**
+- 🎨 Beautiful, color-coded output with emojis
+- 📍 Line numbers and query types
+- 📊 Performance scoring with indicators
+- 📈 Summary reports
+- ⚙️ Configurable rules and thresholds
+
+For detailed setup and configuration, see [LARAVEL_SETUP.md](LARAVEL_SETUP.md).
 
 ## Available Rules
 

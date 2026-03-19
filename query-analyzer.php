@@ -1,6 +1,27 @@
 <?php
 
-require __DIR__ . '/../../../autoload.php';
+// Find autoloader
+$autoloadCandidates = [
+    __DIR__ . '/vendor/autoload.php',                // if running from source
+    __DIR__ . '/../../autoload.php',                  // if installed via composer
+    dirname(__DIR__, 3) . '/autoload.php',            // if installed deeper
+    getcwd() . '/vendor/autoload.php',                // executed from project root
+    getcwd() . '/autoload.php',                       // executed from project root directly
+];
+
+$autoloadFound = false;
+foreach ($autoloadCandidates as $candidate) {
+    if (file_exists($candidate)) {
+        require $candidate;
+        $autoloadFound = true;
+        break;
+    }
+}
+
+if (!$autoloadFound) {
+    fwrite(STDERR, "Could not find autoload.php. Searched:\n" . implode("\n", $autoloadCandidates) . "\n");
+    exit(1);
+}
 
 // php vendor-bin-query-analyze path\to\file.php
 use ProfessionalChacha\PhpQueryOptimizer\QueryAnalyzer;

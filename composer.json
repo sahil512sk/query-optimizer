@@ -29,5 +29,15 @@
         "query-analyze": "vendor/bin/query-analyze.php",
         "analyze-file": "vendor/bin/analyze-file.php",
         "query-analyzer": "vendor/bin/query-analyzer.php"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ProfessionalChacha\\PhpQueryOptimizer\\Laravel\\LaravelServiceProvider"
+            ],
+            "aliases": {
+                "QueryAnalyzer": "ProfessionalChacha\\PhpQueryOptimizer\\QueryAnalyzer"
+            }
+        }
     }
 }
