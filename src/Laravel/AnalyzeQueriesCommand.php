@@ -1,6 +1,6 @@
 <?php
 
-namespace ProfessionalChacha\PhpQueryOptimizer\Laravel;
+namespace ProfessionalChacha\PhpQueryOptimizer\Laravel\Commands;
 
 use Illuminate\Console\Command;
 use ProfessionalChacha\PhpQueryOptimizer\QueryAnalyzer;
@@ -97,7 +97,7 @@ class AnalyzeQueriesCommand extends Command
             }
 
             if ($totalIssues > 0) {
-                $this->line("\n💡 Consider optimizing the queries marked with issues to improve performance.");
+                $this->line("\n💡 Consider optimizing queries marked with issues to improve performance.");
             }
 
             return 0;

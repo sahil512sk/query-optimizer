@@ -120,14 +120,19 @@ print_r($result);
 
 ## Laravel Integration
 
-### Quick Setup
+### Quick Setup (Recommended)
 ```bash
 composer require professionalchacha/php-query-optimizer
-# Auto-discovers the Laravel service provider
-php artisan analyze:queries app/Http/Controllers/UserController.php
 ```
 
-### Usage
+**Add to `app/Console/Kernel.php`:**
+```php
+protected $commands = [
+    \ProfessionalChacha\PhpQueryOptimizer\Laravel\Commands\AnalyzeQueriesCommand::class,
+];
+```
+
+**Use immediately:**
 ```bash
 php artisan analyze:queries app/Http/Controllers/UserController.php
 php artisan analyze:queries database/seeders/DatabaseSeeder.php
@@ -141,7 +146,19 @@ php artisan analyze:queries app/Models/User.php
 - 📈 Summary reports
 - ⚙️ Configurable rules and thresholds
 
-For detailed setup and configuration, see [LARAVEL_SETUP.md](LARAVEL_SETUP.md).
+### Troubleshooting
+If you get "There are no commands defined in the 'analyze' namespace":
+
+1. **Clear Laravel cache:**
+   ```bash
+   php artisan config:clear
+   php artisan cache:clear
+   composer dump-autoload
+   ```
+
+2. **Use manual registration** (recommended above)
+
+For detailed setup options, see [LARAVEL_MANUAL_SETUP.md](LARAVEL_MANUAL_SETUP.md).
 
 ## Available Rules
 
